@@ -130,7 +130,7 @@ export default function Home() {
           <input className='my-3' type="radio" id="option1" name="fav_language" value="1"/>
         
           </div>
-          <div className="row absolute top-[88px] -left-10">
+          <div className="row absolute top-[95px] sm:top-[90px] -left-10">
             <label htmlFor="row">Row2</label>
           </div>
           <div className="col flex flex-1 flex-col">
@@ -139,7 +139,7 @@ export default function Home() {
         <input className='my-3' type="radio" id="option1" name="fav_language" value="1"/>
         <input className='my-3' type="radio" id="option1" name="fav_language" value="1"/>
           </div>
-          <div className="row absolute top-[125px] -left-10">
+          <div className="row absolute top-[132px] sm:top-[128px] -left-10">
             <label htmlFor="row">Row3</label>
           </div>
           <div className="col flex flex-1 flex-col">
@@ -172,7 +172,7 @@ export default function Home() {
           <input className='my-3' type="checkbox" id="option1" name="fav_language" value="1"/>
         
           </div>
-          <div className="row absolute top-[88px] -left-10">
+          <div className="row absolute top-[95px] sm:top-[90px] -left-10">
             <label htmlFor="row">Row2</label>
           </div>
           <div className='col flex flex-1 flex-col'>
@@ -181,7 +181,7 @@ export default function Home() {
         <input className='my-3' type="checkbox" id="option1" name="fav_language" value="1"/>
         <input className='my-3' type="checkbox" id="option1" name="fav_language" value="1"/>
           </div>
-          <div className="row absolute top-[125px] -left-10">
+          <div className="row absolute top-[132px] sm:top-[128px] -left-10">
             <label htmlFor="row">Row3</label>
           </div>
           <div className='col flex flex-1 flex-col'>
@@ -198,7 +198,7 @@ export default function Home() {
       </div>
       <div className='btn flex items-center justify-between mb-50'>
         <button type='submit' className='bg-violet-800 px-6 py-2 text-white text-[.8rem] sm:text-[1rem] rounded-md hover:bg-violet-500'>Submit</button>
-        <div className="h-[8px] sm:h-[12px] bg-green-600 w-[120px] sm:w-[250px] rounded-lg"/>
+        <div className="h-[8px] sm:h-[12px] bg-green-600 w-[100px] sm:w-[250px] rounded-lg"/>
         <p className='text-[14px] sm:text-base'>Page 1 of 1</p>
         <p className='text-violet-900 hover:text-violet-500 text-[14px] sm:text-base'><button>Clear form</button></p>
       </div>
