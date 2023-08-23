@@ -35,7 +35,5 @@ const userSchema = new mongoose.Schema({
   }
  
 });
-
-
-const Details= mongoose.models.details || mongoose.model("details", userSchema);
+const Details= mongoose.models.Details || mongoose.model("Details", userSchema);
 export default Details;

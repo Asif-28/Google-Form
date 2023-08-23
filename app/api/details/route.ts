@@ -1,11 +1,11 @@
 import dbConnect from "@/config/dbConnect";
 import Details from "@/models/details";
+// import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
-dbConnect();
-export async function POST(request: NextRequest,response: NextResponse){
+export const POST = async (req:NextRequest,res:NextResponse)=>{
+    await dbConnect();
     try {
-        const reqBody = await request.json();
         const {
             mcq,
             checkbox,
@@ -14,26 +14,26 @@ export async function POST(request: NextRequest,response: NextResponse){
             dropdown,
             linerScale,
             multiGrid,
-            tickBoxGrid} = reqBody;
-            console.log(reqBody);
-            const newUser = new Details({
-                mcq,
-                checkbox,
-                shortAnswer,
-                paragraph,
-                dropdown,
-                linerScale,
-                multiGrid,
-                tickBoxGrid
-              });
-              console.log(newUser);
-            //   const saved = await newUser.save();
-              return NextResponse.json({
-            message: "Data saved",
-            // data: saved
+            tickBoxGrid
+        } = await req.json();
+       const Saved= await Details.create({
+            mcq,
+            checkbox,
+            shortAnswer,
+            paragraph,
+            dropdown,
+            linerScale,
+            multiGrid,
+            tickBoxGrid
         })
-    } catch (error:any) {
-        return NextResponse.json({error: error.message}, {status: 400})
+        return NextResponse.json({
+            message:"form submit successfully",
+            data:Saved
+        },
+        {
+            status:201
+        })
+    } catch (error) {
+      console.log(error)
     }
-
 }

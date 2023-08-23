@@ -15,24 +15,27 @@ export default function Home() {
   const [multiGrid, setMultiGrid] = useState("");
   const [tickBoxGrid, setTickBoxGrid] = useState("");
 
- async function submitHandler(e: any) {
+
+
+  async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    
     try {
       const { data } = await axios.post("/api/details", {
-       mcq,
-       checkbox,
-       shortAnswer,
-       paragraph,
-       dropdown,
-       linerScale,
-       multiGrid,
-       tickBoxGrid
+        mcq,
+        checkbox,
+        shortAnswer,
+        paragraph,
+        dropdown,
+        linerScale,
+        multiGrid,
+        tickBoxGrid
       });
 
       console.log("success", data);
       router.push("./success");
     } catch (error) {
-      console.log(error);
+      console.log("failed", error);
     }
   }
 
