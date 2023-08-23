@@ -1,22 +1,20 @@
-import dbConnect from '@/config/dbConnect';
-import Details from '@/models/details';
+import dbConnect from "@/config/dbConnect";
+import Details from "@/models/details";
 import { NextRequest, NextResponse } from "next/server";
 
 dbConnect();
-
-export async function POST(request:NextRequest,response:NextResponse){
-
-
+export async function POST(request: NextRequest,response: NextResponse){
     try {
         const reqBody = await request.json();
-        const { mcq,
+        const {
+            mcq,
             checkbox,
             shortAnswer,
             paragraph,
             dropdown,
             linerScale,
             multiGrid,
-            tickBoxGrid,} = reqBody;
+            tickBoxGrid} = reqBody;
             console.log(reqBody);
             const newUser = new Details({
                 mcq,
@@ -26,18 +24,16 @@ export async function POST(request:NextRequest,response:NextResponse){
                 dropdown,
                 linerScale,
                 multiGrid,
-                tickBoxGrid,
+                tickBoxGrid
               });
-        
-              const savedUser = await newUser.save();
-              console.log(savedUser);
-
-        return NextResponse.json({
-            mesaaage: "Data saved",
-            data: savedUser
+              console.log(newUser);
+            //   const saved = await newUser.save();
+              return NextResponse.json({
+            message: "Data saved",
+            // data: saved
         })
     } catch (error:any) {
-        return NextResponse.json({error: error.message}, {status: 500})
+        return NextResponse.json({error: error.message}, {status: 400})
     }
 
 }

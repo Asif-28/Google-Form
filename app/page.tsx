@@ -37,7 +37,14 @@ export default function Home() {
   }
 
 
-  console.log(linerScale);
+  // console.log(mcq);
+  // console.log(checkbox);
+  // console.log(shortAnswer);
+  // console.log(paragraph);
+  // console.log(dropdown);
+  // console.log(linerScale);
+  // console.log(multiGrid);
+  // console.log(tickBoxGrid);
   return (
     <div className="px-2 sm:px-0 form ">
       <form onSubmit={submitHandler}>

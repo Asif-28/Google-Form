@@ -4,12 +4,10 @@ const userSchema = new mongoose.Schema({
   mcq: {
     type: String,
     required: true,
-    unique: true,
   },
   checkbox: {
     type: String,
     required: true,
-    unique: true,
   },
   shortAnswer: {
     type: String,
