@@ -1,4 +1,14 @@
 import mongoose from "mongoose";
+
+// Define the type for the DB_URI environment variable
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      DB_URI: string;
+    }
+  }
+}
+
 const dbConnect = async () => {
   try {
     // if (mongoose.connection.readyState >= 1) return;

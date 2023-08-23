@@ -2,6 +2,7 @@
 import dbConnect from "@/config/dbConnect";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+dbConnect();
 export default function Home() {
   const router = useRouter();
   const [mcq, setMcq] = useState("");
