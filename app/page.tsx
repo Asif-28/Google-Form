@@ -2,6 +2,7 @@
 import dbConnect from "@/config/dbConnect";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 dbConnect();
 export default function Home() {
   const router = useRouter();
@@ -13,10 +14,29 @@ export default function Home() {
   const [linerScale, setLinerScale] = useState("");
   const [multiGrid, setMultiGrid] = useState("");
   const [tickBoxGrid, setTickBoxGrid] = useState("");
-  function submitHandler(e: any) {
+
+ async function submitHandler(e: any) {
     e.preventDefault();
-    router.push("./success");
+    try {
+      const { data } = await axios.post("/api/details", {
+       mcq,
+       checkbox,
+       shortAnswer,
+       paragraph,
+       dropdown,
+       linerScale,
+       multiGrid,
+       tickBoxGrid
+      });
+
+      console.log("success", data);
+      router.push("./success");
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+
   console.log(linerScale);
   return (
     <div className="px-2 sm:px-0 form ">
@@ -197,11 +217,11 @@ export default function Home() {
                     <label htmlFor="option1"> 1</label>
                     <br />
                     <input
+                      required
                       className="my-3"
                       type="radio"
                       id="option1"
-                      name="fav_language"
-                      required
+                      name="rate"
                       value="1"
                       onChange={(e) => setLinerScale(e.target.value)}
                     />
@@ -213,7 +233,7 @@ export default function Home() {
                       className="my-3"
                       type="radio"
                       id="option2"
-                      name="fav_language"
+                      name="rate"
                       required
                       value="2"
                       onChange={(e) => setLinerScale(e.target.value)}
@@ -226,7 +246,7 @@ export default function Home() {
                       className="my-3"
                       type="radio"
                       id="option3"
-                      name="fav_language"
+                      name="rate"
                       required
                       value="3"
                       onChange={(e) => setLinerScale(e.target.value)}
@@ -239,7 +259,7 @@ export default function Home() {
                       className="my-3"
                       type="radio"
                       id="option4"
-                      name="fav_language"
+                      name="rate"
                       required
                       value="4"
                       onChange={(e) => setLinerScale(e.target.value)}
@@ -252,7 +272,7 @@ export default function Home() {
                       className="my-3"
                       type="radio"
                       id="option5"
-                      name="fav_language"
+                      name="rate"
                       required
                       value="5"
                       onChange={(e) => setLinerScale(e.target.value)}
