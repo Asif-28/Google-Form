@@ -31,12 +31,13 @@ export async function POST(request:NextRequest,response:NextResponse){
         
               const savedUser = await newUser.save();
               console.log(savedUser);
+
         return NextResponse.json({
             mesaaage: "Data saved",
             data: savedUser
         })
     } catch (error:any) {
-        return NextResponse.json({error: error.message}, {status: 400});
+        return NextResponse.json({error: error.message}, {status: 500})
     }
 
 }
