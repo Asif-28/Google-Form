@@ -39,6 +39,17 @@ export default function Home() {
     }
   }
 
+  const clearForm = () => {
+    setMcq("");
+    setCheckbox("")
+    setParagraph("");
+    setShortAnswer("")
+    setDropdown("");
+    setLinerScale("");
+    setMultiGrid("");
+    setTickBoxGrid("");
+
+  }
 
   // console.log(mcq);
   // console.log(checkbox);
@@ -530,7 +541,7 @@ export default function Home() {
             <div className="h-[8px] sm:h-[12px] bg-green-600 w-[100px] sm:w-[250px] rounded-lg" />
             <p className="text-[14px] sm:text-base">Page 1 of 1</p>
             <p className="text-violet-900 hover:text-violet-500 text-[14px] sm:text-base">
-              <button>Clear form</button>
+              <button type="button" onClick={clearForm}>Clear form</button>
             </p>
           </div>
           <div className="info mb-12">
